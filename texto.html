@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Dedicatoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0E294B; /* Un azul marino oscuro para un look profesional */
+            color: #E6EDF3;
+        }
+
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            margin-top: 5rem; /* Margen superior para el borde */
+            display: block;
+            width: 90%;
+            max-width: 800px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover, .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-4xl w-full p-6 sm:p-10 bg-white rounded-2xl shadow-lg border border-gray-200 text-gray-800">
+        <!-- Contenedor naranja para el encabezado y el título -->
+        <div class="bg-orange-500 rounded-xl p-6 mb-8 text-white">
+            <!-- Header de la carta -->
+            <header class="flex flex-col sm:flex-row justify-between items-center mb-6 border-b border-white border-opacity-30 pb-4">
+                <!--  <div class="flex items-center space-x-2">
+                    <span class="text-sm font-bold">BOLIVIA</span>
+                </div>  -->
+                <div class="text-center sm:text-right mt-2 sm:mt-0">
+                    <span class="text-sm">21 de Septiembre de 2025</span>
+                </div>
+            </header>
+
+            <!-- Título principal y subtítulo -->
+            <div>
+                <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-2">Para mi Mejor Amiga</h1>
+                <p class="text-lg">De parte de Orlando Osorio</p>
+               <!-- <p class="text-sm">Para quien la distancia nunca a sido impedimento</p> -->
+            </div>
+        </div>
+
+        <!-- Área de fotos -->
+        <div class="w-full mb-8 relative group cursor-pointer" onclick="openModal()">
+            <img id="mainImage" src="img/banner.png" alt="Placeholder para la foto de perfil" class="w-full rounded-xl shadow-md border border-gray-300 transition-transform duration-300 group-hover:scale-105">
+            <!-- Indicativo de ampliar en la esquina de la imagen -->
+            <div class="absolute bottom-2 right-2 p-2 bg-black bg-opacity-50 text-white rounded-full transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                <i class="fas fa-expand-alt"></i>
+            </div>
+        </div>
+
+        <!-- Cuerpo de la carta -->
+        <section class="prose max-w-none leading-relaxed text-gray-700">
+            <p>
+              Mi estrellita 🌟, aunque hoy no hablemos tanto como al principio, quiero que sepas que el cariño que siento por ti jamás desaparecerá 💖. Nuestra amistad empezó con un simple mensaje 📩, un simple stiker 😄 ese 11 de junio del 2020 🗓️ y terminó convirtiéndose en algo muy especial ✨. Gracias a ti aprendí, crecí y viví momentos hermosos y hasta graciosos que guardo con mucho aprecio 🥰. A pesar de la distancia 🌍, siempre has estado presente en mis pensamientos y en mi corazón ❤️. Estoy muy orgulloso de todo lo que has logrado y de lo que aún te espera 🚀, y aunque no podamos compartir tanto como quisiéramos, siempre tendrás un lugar muy especial en mi vida 🤗💞.
+            </p>
+        </section>
+
+        <!-- Pie de página y botón -->
+        <footer class="mt-8 text-center">
+            <a href="flower.html" class="inline-block px-8 py-3 bg-gradient-to-r from-orange-500 to-orange-700 text-white font-bold rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-white">
+                Ver Regalo
+            </a>
+        </footer>
+    </div>
+
+    <!-- Modal para la imagen ampliada -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="flex flex-col items-center">
+            <img class="modal-content rounded-xl" id="img01">
+            <a id="downloadBtn" href="img/principal.png" download="imagen_ampliada.png" class="mt-4 px-6 py-2 bg-orange-500 text-white font-bold rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+                Descargar imagen
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("img01");
+            var mainImage = document.getElementById("mainImage");
+            
+            modal.style.display = "flex";
+            modalImg.src = "img/principal.png"; // URL de la imagen ampliada
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

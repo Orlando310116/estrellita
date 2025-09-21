@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresa el año</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            background-color: #000;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #yearInput {
+            width: 150px;
+            text-align: center;
+            font-size: 2em;
+            letter-spacing: 5px;
+            border: none;
+            background: transparent;
+            color: white;
+            outline: none;
+        }
+
+        /* Teclado numérico */
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .keypad-button {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .keypad-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .keypad-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Botones especiales (borrar y check) */
+        .keypad-button.clear, .keypad-button.check {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Responsive para dispositivos móviles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                width: 90%;
+            }
+            .keypad {
+                gap: 10px;
+            }
+            .keypad-button {
+                padding: 15px;
+            }
+            #yearInput {
+                font-size: 1.5em;
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ingresa el año que nos conocimos 🔐🤭</h1>
+        <div class="input-container">
+            <input type="text" id="yearInput" maxlength="4" readonly>
+        </div>
+        <div class="keypad">
+            <button class="keypad-button" onclick="appendNumber(1)">1</button>
+            <button class="keypad-button" onclick="appendNumber(2)">2</button>
+            <button class="keypad-button" onclick="appendNumber(3)">3</button>
+            <button class="keypad-button" onclick="appendNumber(4)">4</button>
+            <button class="keypad-button" onclick="appendNumber(5)">5</button>
+            <button class="keypad-button" onclick="appendNumber(6)">6</button>
+            <button class="keypad-button" onclick="appendNumber(7)">7</button>
+            <button class="keypad-button" onclick="appendNumber(8)">8</button>
+            <button class="keypad-button" onclick="appendNumber(9)">9</button>
+            <button class="keypad-button clear" onclick="clearInput()">⌫</button>
+            <button class="keypad-button" onclick="appendNumber(0)">0</button>
+            <button class="keypad-button check" onclick="checkYear()">✓</button>
+        </div>
+    </div>
+
+    <script>
+        const yearInput = document.getElementById('yearInput');
+
+        function appendNumber(number) {
+            if (yearInput.value.length < 4) {
+                yearInput.value += number;
+            }
+        }
+
+        function clearInput() {
+            yearInput.value = yearInput.value.slice(0, -1);
+        }
+
+        function checkYear() {
+            if (yearInput.value === '2020') {
+                // Cambia 'otra_pagina.html' por la URL a la que quieres redirigir
+                window.location.href = 'texto.html'; 
+            } else {
+                alert('¡Año incorrecto! Intenta de nuevo.');
+                yearInput.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
